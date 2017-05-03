@@ -1,0 +1,57 @@
+<!-- HTML template for the form for each Assessment. -->
+
+{% extends 'assessment/base.html' %}
+{% block title %} Complete Test {% endblock %}
+
+{% block heading %} <h1>{{ Test.test_title }}</h1> {% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form method="POST" action="" class="form-horizontal" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'assessment/form-template.html' %}
+                      <div class="form-group">
+                          {{Form.test}}
+                          <label>Name:</label>
+                          {{Form.student_name}} <br>
+                          <label>{{Test.question_1}}</label>
+                          {{Form.answer_1}} <br>
+                          <label>{{Test.question_2}}</label>
+                          {{Form.answer_2}} <br>
+                      </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #id_answer_1{
+    height: 40%;
+     width: 100%;
+    }
+     #id_answer_2{
+    height: 40%;
+     width: 100%;
+    }
+     #id_student_name{
+    height: 40%;
+     width: 50%;
+    }
+</style>
+
+{% endblock %}
+
+
+
+

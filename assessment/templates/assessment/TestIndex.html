@@ -1,0 +1,27 @@
+<!-- HTML template for the Index page of the tests available for the course.
+ Uses a for loop to display an image and caption for each test.-->
+
+{% extends 'assessment/base.html' %}
+
+{% block body %}
+        <h2>{{ Course.course_title }}</h2>
+    {% if Course.test_set.all %}
+        <h3>Here are all the Assessments available for this course:</h3>
+        <ul>
+            {% for test in Course.test_set.all %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'assessment:test-complete' test.id %}">
+                            <img src="{{ test.test_image }}" class="img-responsive">
+                        </a>
+                        <div class="caption">
+                            <h2>{{test.test_title}}</h2>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>You are not enrolled for any Assessments</h3>
+    {% endif %}
+{% endblock %}

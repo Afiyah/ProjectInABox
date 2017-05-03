@@ -1,0 +1,33 @@
+<!-- HTML template for the Details page of the Plotly App. Displays
+ the Course title and Plotly graph for each course-->
+
+{% extends 'plotly/base.html' %}
+
+{% block title %}Course Details{% endblock %}
+
+{% block body %}
+    <h1>{{ course.course_title }}</h1>
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-8 text-left">
+            <hr>
+            <p>This is the Plotly Graph for the {{ course.course_title}} Course</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block plotly %}
+    <div class="container-fluid text-center">
+        <a href="https://plot.ly/~Projectinabox/4/?share_key=1PyZVqMI2EJbqbMQRn8RUS target="_blank" title="Raspberry Pi - Voltage and Current" style="display: block; text-align: center;">
+        <img src="https://plot.ly/~Projectinabox/4.png?share_key=1PyZVqMI2EJbqbMQRn8RUS" alt="Raspberry Pi - Voltage and Current" style="max-width: 100%; width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" />
+        </a>
+        <script data-plotly="Projectinabox:4" sharekey-plotly="1PyZVqMI2EJbqbMQRn8RUS" src="https://plot.ly/embed.js" async>
+        </script>
+    </div>
+
+{% endblock %}
+

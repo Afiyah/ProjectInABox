@@ -1,0 +1,27 @@
+<!-- HTML template for the Details page of the Assessment App. Displays
+ the Course title and Assessment for each course-->
+
+{% extends 'assessment/base.html' %}
+
+{% block title %} Assessment Details{% endblock %}
+
+{% block body %}
+<h1>{{ Course.course_title }}</h1>
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            <h3>My Courses</h3>
+                <ul>
+                    <li><a href="(% url 'assessment:detail' Course.id %)">{{ Course.course_title}}</a></li>
+                </ul>
+        </div>
+        <div class="col-sm-8 text-left">
+            <hr>
+            <p>This is the Assessment for the {{ Course.course_title}} Course</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

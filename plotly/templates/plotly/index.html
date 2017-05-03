@@ -1,0 +1,28 @@
+<!-- HTML template for the Index page of the Plotly App.
+ Uses a for loop to display an image and caption for each course.-->
+
+{% extends 'plotly/base.html' %}
+
+{% block body %}
+    {% if all_courses %}
+        <h3>Here are all the courses</h3>
+        <ul>
+            {% for course in all_courses %}
+                <div class="col-sm-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'plotly:detail' course.id %}">
+                            <img src="{{ course.course_image }}" class="img-responsive">
+                        </a>
+                          <div class="caption">
+                            <h2>{{ course.course_title }}</h2>
+                          </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>You are not enrolled for any courses</h3>
+    {% endif %}
+{% endblock %}
+
+
